@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Книжная полка</title>
+</head>
+<body>
+
+<form action="/process_login" method="post" name="f">
+    <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+
+    <label for="username">Логин: </label>
+    <input id="username" name="username" type="text"/>
+    <br/>
+    <label for="password">Пароль: </label>
+    <input id="password" name="password" type="password"/>
+    <br/>
+    <input type="submit" value="Вход"/>
+
+    <div style="color: red" th:if="${param.error}">
+        Введен неправильный логин или пароль.
+    </div>
+</form>
+
+</body>
+</html>
